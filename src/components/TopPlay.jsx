@@ -20,12 +20,13 @@ const TopPlay = () => {
   if(isFetching) return <Loader title="Loading songs..."/>;
   const db = data.tracks;
   const topPlays = db.slice(0,5);
+  // const divRef = useRef(null);
 
-  const handlePauseClick = () => {
+  const handlePauseClick = (song, i) => {
     dispatch(playPause(false));
   };
 
-  const handlePlayClick = () => {
+  const handlePlayClick = (song, i) => {
     dispatch(setActiveSong({ song, data, i }));
     dispatch(playPause(true));
   };
@@ -33,7 +34,7 @@ const TopPlay = () => {
 
 /*При обновлении проподает удалить все с датой и перезагрузить страницу*/
   return(
-    <div className="xl:ml-6 ml-0 xl-mb-0 mb-6 flex-1 xl:max-w-[500px] max-w-full flex flex-col">
+    <div /*ref={divRef}*/ className="xl:ml-6 ml-0 xl-mb-0 mb-6 flex-1 xl:max-w-[500px] max-w-full flex flex-col">
       <div className="w-full flex flex-col">
         <div className="flex flex-row justify-between items-center">
           <h2 className="text-white font-bold text-2xl">Top Charts</h2>
@@ -48,13 +49,46 @@ const TopPlay = () => {
             song={song}
             i={i}
             key={song.key}
+            isPlaying={isPlaying}
+            activeSong={activeSong}
+            handlePauseClick={handlePauseClick}
+            handlePlayClick={() => handlePlayClick(song, i)}
           />
         ))}
         </div>
-
       </div>
+
+      <div className='w-full flex flex-col mt-8'>
+        <div className="flex flex-row justify-between items-center">
+          <h2 className="text-white font-bold text-2xl">Top Artists</h2>
+          <Link to="/top-artists">
+            <p className="text-gray-300 cursor-pointer text-base">See more</p>
+          </Link>
+        </div>
+        <Swiper
+          slidesPerView="auto"
+          spaceBetween={15}
+          freeMode
+          centeredSlides
+          centeredSlidesBounds
+          modules={[FreeMode]}
+          className='mt-4'
+          >
+            {topPlays?.map((song,i) => (
+              <SwiperSlide
+              key={song?.key}
+              style={{width: '22%', height: 'auto'}}
+              className='shadow-lg rounded-full animate-slideright'>
+                <Link to={`/artists/${song?.artists[0].adamid}`}>
+                  <img src={song?.images.background} alt="name" className='rounded-full w-full object-cover' />
+                </Link>
+              </SwiperSlide>
+            ))}
+        </Swiper>
+      </div>
+      
     </div>
-  )
+  );
 };
 
 export default TopPlay;
