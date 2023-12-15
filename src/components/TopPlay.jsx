@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import {genres} from '../assets/constants';
 import { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Swiper, SwiperSlide} from 'swiper/react';
 import { FreeMode } from "swiper";
 import PlayPause from "./PlayPause";
@@ -18,7 +18,7 @@ const TopPlay = () => {
   const { activeSong, isPlaying} = useSelector((state) => state.player);
   const { data , isFetching} = useGetTopChartsQuery();
   if(isFetching) return <Loader title="Loading songs..."/>;
-  const db = data.tracks;
+  const db =  data.tracks;
   const topPlays = db.slice(0,5);
   // const divRef = useRef(null);
 
@@ -31,6 +31,7 @@ const TopPlay = () => {
     dispatch(playPause(true));
   };
 
+  console.log(activeSong)
 
 /*При обновлении проподает удалить все с датой и перезагрузить страницу*/
   return(
