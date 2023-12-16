@@ -3,6 +3,9 @@ module.exports = {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      backgroundImage: {
+        'banner': "url('https://gastore.ru/upload/iblock/554/5543a53741a153b27be364a60cb29198.png')",
+      },
       colors: {
         black: '#191624',
       },

@@ -32,15 +32,15 @@ const SongDetails = () => {
     <div className="flex flex-col">
       <DetailsHeader songData={songData}/>
       <div className="mb-10">
-        <h2 className="text-white text-3xl font-bold">Текст песни</h2>
+        <h2 className="text-black text-3xl font-mono font-bold">Текст песни</h2>
         <div className="mt-5 ">
         {songData.resources.lyrics && textId ? (
   songData.resources.lyrics[textId]?.attributes?.text?.map((line, i) => (
     
-    <p key={i} className="text-gray-400 tex-base my-1">{line}</p>
+    <div key={i} className="text-gray-500 text-base my-2 flex ">{line}</div>
   ))
 ) : ( 
-  <p className="text-gray-400 tex-base my-1">Извините, текст пока не добавлен.</p>
+  <p className="text-gray-500 text-base my-1">Извините, текст пока не добавлен.</p>
 )}
         </div>
       </div>

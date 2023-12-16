@@ -16,12 +16,17 @@ const Discover = () => {
   if(isFetching) return <Loader title="Loading songs..."/>;
 
   if(error) return <Error/>;
-
+// bg-banner bg-cover
   return(
-    <div className="flex flex-col">
-    <div className="w-full flex justify-between items-center sm:flex-row flex-col mt-4 mb-10">
-      <h2 className="font-bold text-3xl text-white text-left">Главная страница</h2>
-
+    <div className="flex flex-col"> 
+    <h2 className="font-bold text-3xl text-black text-left">Главная страница</h2>
+      <div className="h-[300px] bg-[#1a73d8] rounded-3xl mt-6 flex justify-center items-center">
+        <span className='text-8xl text-white font-mono'>Новинки недели</span>
+      </div>
+      <div className="w-full flex justify-between items-center sm:flex-row flex-col mt-4 mb-10">
+     
+        
+        
       {/* <select
         onChange={(e) => dispatch(selectGenreListId(e.target.value))}
         value={genreListId || 'pop'}

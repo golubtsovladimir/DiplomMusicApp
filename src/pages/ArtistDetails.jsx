@@ -12,6 +12,7 @@ const ArtistDetails = () => {
   if(isFetchingArtistDetails) return <Loader title="Загрузка информации"/>;
   if (error) return <Error/>
   const artistDataId = (Object.keys(artistData.data)[0]);
+  console.log(artistData);
   return (
 
     <div className="flex flex-col"> 

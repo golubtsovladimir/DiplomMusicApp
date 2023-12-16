@@ -17,7 +17,7 @@ const ArtistPhoto = ({}) => {
   console.log(data.data[0].attributes.genreNames[0])
   return(
     <div className="relative w-full flex flex-col">
-      <div className="w-full bg-gradient-to-l from-transparent to-black sm:h-48 h-28">
+      <div className="w-full bg-gradient-to-r from-transparent to-[#1a73d8] sm:h-48 h-18">
         <div className="absolute inset-0 flex items-center">
           <img 
           src={data.data[0].attributes.artwork.url.replace('{w}', '500').replace('{h}' , '500')} 
@@ -26,12 +26,12 @@ const ArtistPhoto = ({}) => {
 
           <div className="ml-5">
               <Link to={`/artists/${artistId}`}>
-              <p className="font-bold sm:text-3xl text-xl text-white">
+              <p className="font-bold sm:text-3xl text-xl text-black">
                 {data.data[0].attributes.name}
               </p>
               </Link>
 
-              <p className="text-base text-gray-400 mt-2">
+              <p className="text-base text-black mt-2">
                 {data.data[0].attributes.genreNames[0]}
               </p> 
 
