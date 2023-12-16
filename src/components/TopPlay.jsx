@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide} from 'swiper/react';
 import { FreeMode } from "swiper";
 import PlayPause from "./PlayPause";
 import { playPause, setActiveSong } from "../redux/features/playerSlice";
-import { useGetTopChartsQuery } from "../redux/services/shazamCore";
+import { useGetTopChartsQuery,useGetTopChartsCountryQuery } from "../redux/services/shazamCore";
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import TopChartCard from './TopChartCard';
@@ -16,7 +16,7 @@ const TopPlay = () => {
   
   const dispatch = useDispatch();
   const { activeSong, isPlaying} = useSelector((state) => state.player);
-  const { data , isFetching} = useGetTopChartsQuery();
+  const { data , isFetching} = useGetTopChartsCountryQuery();
   if(isFetching) return <Loader title="Loading songs..."/>;
   const db =  data.tracks;
   const topPlays = db.slice(0,5);
@@ -31,7 +31,6 @@ const TopPlay = () => {
     dispatch(playPause(true));
   };
 
-  console.log(activeSong)
 
 /*При обновлении проподает удалить все с датой и перезагрузить страницу*/
   return(

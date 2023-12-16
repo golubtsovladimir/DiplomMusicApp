@@ -5,7 +5,6 @@ import { playPause, setActiveSong } from "../redux/features/playerSlice";
 
 const TopChartCard = ({ song, i , isPlaying, activeSong, handlePauseClick, handlePlayClick}) => {
   const dispatch = useDispatch();
-  console.log(activeSong);
   return(
         <div className="w-full flex flex-row items-center hover:bg-[#4c426e] py-2 p-4 rounded-lg cursor-pointer mb-2">
           <h3 className="font-bold text-base text-white mr-3">{i + 1}.</h3>

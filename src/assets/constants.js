@@ -19,7 +19,7 @@ export const genres = [
 
 export const links = [
   { name: 'Главная страница', to: '/', icon: HiOutlineHome },
-  { name: 'Топ-чарт: локальные хиты', to: '/around-you', icon: HiOutlinePhotograph },
+  { name: 'Популярные песни', to: '/top-charts', icon: HiOutlineHashtag },
   { name: 'Популярные исполнители', to: '/top-artists', icon: HiOutlineUserGroup },
-  { name: 'Мировой топ-чарт', to: '/top-charts', icon: HiOutlineHashtag },
+  // { name: 'Топ-чарт: локальные хиты', to: '/around-you', icon: HiOutlinePhotograph },
 ];
