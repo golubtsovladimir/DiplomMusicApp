@@ -17,10 +17,10 @@ export const shazamCoreApi = createApi({
     getSongRelated: builder.query({ query: ({songid}) => `/shazam-songs/list-similarities?id=track-similarities-id-${songid}` }),
     getArtistDetails: builder.query({ query: ({artistId}) => `/artists/get-top-songs?id=${artistId}` }),
     getArtistDetailsPhoto:builder.query({ query: ({artistId}) => `/artists/get-details?id=${artistId}` }),
-    getSongsBySearch:builder.query({ query: (searchTerm) => `/search?term=${searchTerm}&locale=en-US&offset=0&limit=5` }),
-    getSongsBySearchReturn:builder.query({ query: (searchTerm) => `/search?term=${searchTerm}&locale=ru-RUS&offset=2&limit=7` }),
+    getSongsBySearch:builder.query({ query: (searchTerm) => `/search?term=${searchTerm}&locale=ru-RU&offset=4&limit=4` }),
+    getSongsBySearchReturn:builder.query({ query: (searchTerm) => `/search?term=${searchTerm}&locale=ru-RU&offset=0&limit=4` }),
   }),
-});
+}); 
 
 export const {
   useGetTopChartsQuery,
