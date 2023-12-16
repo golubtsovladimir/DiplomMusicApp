@@ -12,10 +12,10 @@ const RelatedSongs = ({ data, artistId, isPlaying, activeSong, handlePauseClick,
             song={song}
             i={i}
             artistId={artistId}
-            isPlaying={isPlaying}
+            isPlaying={isPlaying} 
             activeSong={activeSong}
             handlePauseClick={handlePauseClick}
-            handlePlayClick={() => handlePlayClick(song, i)}
+            handlePlayClick={handlePlayClick}
           />
         ))}
       </div>
